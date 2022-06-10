@@ -1,0 +1,46 @@
+
+
+<html>
+<body>
+
+<h3 class="p-3 text-center">Giden Mail Listesi</h3>
+<div class="container">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Title</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let message of messageList">
+      <td>
+        <div *ngIf="message.readed == true ; else standart">
+          <span style="color:#908f8f ;text-underline-style: dash ">{{message.mailTitle}}</span>
+        </div>
+        <ng-template #standart>
+
+          <span style="color: #333333 ">{{message.mailTitle}}</span>
+
+        </ng-template>
+      </td>
+      <td>
+        <button>
+          <a [routerLink]="['/detail/' + message.messageId]" routerLinkActive="active" class="nav-link">Read Detail</a>
+        </button>
+
+
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+</body>
+
+</html>
